@@ -31,7 +31,7 @@
 
         <cfquery>
             DELETE FROM notes
-            WHERE id = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.deleteID#" />
+            WHERE   id = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.deleteID#" />
         </cfquery>
     </cffunction>
 
@@ -43,6 +43,16 @@
             UPDATE  notes
             SET     note = <cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.note#" />
             WHERE   id = <cfqueryparam cfsqltype="cf_sql_numeric" value="#arguments.editID#" />
+        </cfquery>
+    </cffunction>
+
+    <cffunction name="doneNote">
+        <cfargument name="doneID" type="numeric" required="true"/>
+
+        <cfquery>
+            UPDATE  notes
+            SET     done = !done
+            WHERE   id = <cfqueryparam cfsqltype="cf_sql_numeric" value="#arguments.doneID#" />
         </cfquery>
     </cffunction>
 

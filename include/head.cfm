@@ -8,13 +8,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <link rel="icon" href="favicon.ico">
+
     <title>Notify V0.0.4</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/login.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
 
     <!-- Custom styles for this template -->
-    <link href="css/jumbotron-narrow.css" rel="stylesheet">
+    <link href="/css/jumbotron-narrow.css" rel="stylesheet">
 </head>

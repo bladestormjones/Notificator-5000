@@ -1,15 +1,9 @@
-<cfif usernote eq "yes">
-    <cfoutput>
-        <cfquery>
-        DELETE from user_#getAuthUser()#
-        WHERE id = #deleteID#
-        </cfquery>
-    </cfoutput>
-<cfelse>
-    <cfquery>
-            DELETE from notes
-            WHERE id = #deleteID#
-    </cfquery>
-</cfif>
+<cfif structKeyExists(Form, "deleteID") and Len( form.deleteID )>
+    <cfset obj = new components.notes() />
+    <cfset genKey = obj.deleteNote( form.deleteID )/>
 
-<cflocation url = "../index.cfm" addtoken="false"/>
+    <cflocation url = "/index.cfm" addtoken="false"/>
+<cfelse>
+    No note selected. <br/>
+    <a href="/index.cfm">Go back</a>
+</cfif>

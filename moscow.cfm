@@ -25,7 +25,7 @@
 <body>
 
 <div class="container">
-    <cfinclude template="include/navbar.cfm"/>
+    <cfinclude template="/include/navbar.cfm"/>
 
     <div class="jumbotron">
         <h1>MoSCoW:<br>Notificator 5000</h1>
@@ -45,7 +45,7 @@
         - Ability to add a reminder time to a note and to send a mail around that time. (tip: scheduled tasks)<br>
     </div>
 
-    <cfinclude template="include/footer.cfm"/>
+    <cfinclude template="/include/footer.cfm"/>
 
 </div> <!-- /container -->
 

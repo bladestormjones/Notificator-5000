@@ -1,37 +1,9 @@
-<cfset time = now()/>
+<cfif structKeyExists(Form, "note") and Len( form.note )>
+    <cfset obj = new components.notes() />
+    <cfset genKey = obj.addNote( form.note )/>
 
-<cfif getAuthUser() NEQ "">
-    <cfoutput>
-    <cfquery result="qryResult">
-        INSERT INTO user_#getAuthUser()#
-        (
-            id,note,timestamp,done
-        )
-        VALUES
-        (
-        <cfqueryparam cfsqltype="CF_SQL_INTEGER" value= />,
-        <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value=#note# />,
-        <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value=#time# />,
-        <cfqueryparam cfsqltype="CF_SQL_TINYINT" value=no />
-        )
-    </cfquery>
-
-        <cflocation url = "../index.cfm##usernote_#qryResult.generatedkey#" addtoken="false"/>
-    </cfoutput>
-    <cfelse>
-    <cfquery result="qryResult">
-    INSERT INTO notes
-    (
-        id,note,author,timestamp
-    )
-    VALUES
-    (
-    <cfqueryparam cfsqltype="CF_SQL_INTEGER" value= />,
-        <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value=#note# />,
-        <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value=#author# />,
-        <cfqueryparam cfsqltype="CF_SQL_VARCHAR" value=#time# />
-            )
-    </cfquery>
-
-    <cflocation url = "../index.cfm##note_#qryResult.generatedkey#" addtoken="false"/>
+    <cflocation url = "/index.cfm##note_#genKey#" addtoken="false"/>
+<cfelse>
+    Deze notitie is helaas te kort <br/>
+    <a href="/index.cfm">Ga terug</a>
 </cfif>

@@ -1,16 +1,16 @@
-<cfinclude template="head.cfm"/>
+<cfinclude template="include/head.cfm"/>
 
 <body>
 
 <div class="container">
 
-<cfinclude template="navbar.cfm"/>
+<cfinclude template="include/navbar.cfm"/>
 
     <div class="jumbotron">
 
     </div>
 
-<cfinclude template="footer.cfm"/>
+<cfinclude template="include/footer.cfm"/>
 
 </div> <!-- /container -->
 

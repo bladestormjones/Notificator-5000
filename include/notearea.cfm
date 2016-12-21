@@ -6,7 +6,7 @@
 <blockquote>#myquery.note#</blockquote>--#myquery.author#<br>#datetime#<br>
 <hr>
 <div style='float:left'>
-    <form action="delete_note.cfm" method="post">
+    <form action="process/delete_note.cfm" method="post">
         <input type="hidden" name="deleteID" value="#myquery.id#">
         <input type="hidden" name="usernote" value="no">
         <button type="submit" class="btn btn-danger">

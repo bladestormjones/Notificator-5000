@@ -2,18 +2,18 @@
     SELECT * FROM notes
 </cfquery>
 
-<cfinclude template="head.cfm"/>
+<cfinclude template="include/head.cfm"/>
 
 <body>
 
 <div class="container">
-    <cfinclude template="navbar.cfm"/>
+    <cfinclude template="include/navbar.cfm"/>
 
     <div class="jumbotron">
         <h1>Notificator 5000</h1>
         <cfif Getauthuser() NEQ "">
             <p class="lead"><cfoutput>Welcome, #Getauthuser()#! Your personal notes are displayed below. General notes are beneath that.</cfoutput></p>
-            <form action="submit_note.cfm" method="post">
+            <form action="process/submit_note.cfm" method="post">
                 Note:<br>
                 <textarea name="note" rows="4" cols="50" maxlength="144">Something profound</textarea>
                 <br>
@@ -25,7 +25,7 @@
             </form>
         <cfelse>
                 <p class="lead">Make a note here, then read it in the list below once you are done!</p>
-                <form action="submit_note.cfm" method="post">
+                <form action="process/submit_note.cfm" method="post">
                     Note:<br>
                     <textarea name="note" rows="4" cols="50" maxlength="144">Something profound</textarea>
                     <br>
@@ -49,7 +49,7 @@
 
             <cfoutput query="myQuery2" group="id">
                 <cfif myQuery2.currentrow % 2 eq 1>
-                    <cfinclude template="noteareauser.cfm">
+                    <cfinclude template="include/NoteAreaUser.cfm">
                 </cfif>
             </cfoutput>
 
@@ -58,7 +58,7 @@
 
             <cfoutput query="myQuery2" group="id">
                 <cfif myQuery2.currentrow % 2 eq 0>
-                    <cfinclude template="noteareauser.cfm">
+                    <cfinclude template="include/NoteAreaUser.cfm">
                 </cfif>
             </cfoutput>
 
@@ -74,7 +74,7 @@
 
             <cfoutput query="myQuery" group="id">
                 <cfif myQuery.currentrow % 2 eq 1>
-                    <cfinclude template="notearea.cfm">
+                    <cfinclude template="include/notearea.cfm">
                 </cfif>
             </cfoutput>
 
@@ -83,14 +83,14 @@
 
             <cfoutput query="myQuery" group="id">
                 <cfif myQuery.currentrow % 2 eq 0>
-                    <cfinclude template="notearea.cfm">
+                    <cfinclude template="include/notearea.cfm">
                 </cfif>
             </cfoutput>
 
         </div>
     </div>
 
-    <cfinclude template="footer.cfm"/>
+    <cfinclude template="include/footer.cfm"/>
 
 </div> <!-- /container -->
 

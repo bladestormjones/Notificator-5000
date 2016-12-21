@@ -12,4 +12,4 @@
     </cfquery>
 </cfif>
 
-<cflocation url = "index.cfm" addtoken="false"/>
+<cflocation url = "../index.cfm" addtoken="false"/>

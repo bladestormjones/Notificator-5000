@@ -1,13 +1,13 @@
-<cfinclude template="head.cfm"/>
+<cfinclude template="include/head.cfm"/>
 
 <body>
 
 <div class="container">
 
-    <cfinclude template="navbar.cfm"/>
+    <cfinclude template="include/navbar.cfm"/>
 
     <div class="jumbotron">
-        <form action="create_user.cfm" method="POST">
+        <form action="process/create_user.cfm" method="POST">
             Username:<br>
             <input type="text" name="username" placeholder="Username" required><br>
             Password:<br>
@@ -20,7 +20,7 @@
 
     </div>
 
-    <cfinclude template="footer.cfm"/>
+    <cfinclude template="include/footer.cfm"/>
 
 </div> <!-- /container -->
 

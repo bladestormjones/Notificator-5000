@@ -14,7 +14,7 @@
         <div align="right">
         <cflogin>
             <cfif NOT IsDefined("cflogin")>
-                <cfinclude template="loginform.cfm">
+                <cfinclude template="include/loginform.cfm">
             <cfelse>
                 <cfquery name="loginQuery">
                 SELECT username, Roles
@@ -31,7 +31,7 @@
                             <H2>Your login information is not valid.<br>
                                 Please Try again</H2>
                         </cfoutput>
-                        <cfinclude template="loginform.cfm">
+                        <cfinclude template="include/loginform.cfm">
                     </cfif>
             </cfif>
         </cflogin>

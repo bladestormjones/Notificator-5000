@@ -13,7 +13,7 @@
 </cfquery>
 
 <cfif usernote eq "yes">
-    <cflocation url = "index.cfm##usernote_#id#" addtoken="false"/>
+    <cflocation url = "../index.cfm##usernote_#id#" addtoken="false"/>
     <cfelse>
-    <cflocation url = "index.cfm##note_#id#" addtoken="false"/>
+    <cflocation url = "../index.cfm##note_#id#" addtoken="false"/>
 </cfif>

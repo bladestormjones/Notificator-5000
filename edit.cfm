@@ -1,9 +1,9 @@
-<cfinclude template="head.cfm"/>
+<cfinclude template="include/head.cfm"/>
 
 <body>
 
 <div class="container">
-<cfinclude template="navbar.cfm"/>
+<cfinclude template="include/navbar.cfm"/>
 
 <cfif usernote eq "yes">
     <cfoutput>
@@ -23,7 +23,7 @@
         <h1>Edit Note</h1>
         <p class="lead">Edit your note below:</p>
         <cfoutput query="qryResult">
-        <form action="edit_note.cfm" method="post">
+        <form action="process/edit_note.cfm" method="post">
             Note:<br>
             <textarea name="note" rows="4" cols="50" maxlength="144"><cfoutput>#qryResult.note#</cfoutput></textarea>
             <input type="hidden" name="id" value="#editID#"/>
@@ -37,7 +37,7 @@
 
     </div>
 
-    <cfinclude template="footer.cfm"/>
+    <cfinclude template="include/footer.cfm"/>
 
     </div><!-- /container -->
     </body>

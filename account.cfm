@@ -14,20 +14,32 @@
             WHERE id = "#session.user_id#"
         </cfquery>
         <cfoutput>
-            <h4>User Info:</h4>
-            Username: #userinfo.username#<br>
-            Email: #userinfo.email#<br>
+            <h4>User Info for #userinfo.username#:</h4>
+            <form action="/process/edit_user.cfm" method="post"/>
+                Email:<br>
+                <input type="text" name="newEmail" value="#userinfo.email#"/><br>
+                Change Password:<br>
+                <input type="password" name="newPassword" placeholder="Enter New Password"><br>
+                <br>
+                Confirm old password to make changes:<br>
+                <input type="password" name="oldPassword" placeholder="Enter Old Password" required><br>
+                <br>
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-pencil-square-o fa-lg"></i> Make Changes
+                </button>
+            </form>
+            <hr>
+            <h4>Account Deletion:</h4>
+            WARNING:<br>
+            This action is irreversible and will also delete all your notes!<br>
+            Are you sure you wish to proceed?<br>
             <br>
             <form action="/process/delete_user.cfm" method="post">
+            <input type="checkbox" name="confirm" required value="true" /> Confirm account deletion<br>
+            <br>
                 <button type="submit" class="btn btn-danger">
                     <i class="fa fa-times fa-lg"></i> Delete Account
-                </button><br>
-                <br>
-                WARNING:<br>
-                This action is irreversible and will also delete all your notes!<br>
-                Are you sure you wish to proceed?<br>
-                <br>
-                <input type="checkbox" name="confirm" required value="true" /> Confirm account deletion
+                </button>
             </form>
         </cfoutput>
 

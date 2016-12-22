@@ -4,7 +4,6 @@
     <cfset this.sessionmanagement = True>
     <cfset this.defaultdatasource = "notes">
 
-
     <cffunction name="OnRequestStart">
     <cfargument name = "request" required="true"/>
     <cfif structKeyExists(form, "logout")>
@@ -14,9 +13,11 @@
 
         <div align="right">
         <cflogin>
-            <cfif !isUserLoggedIn() AND !IsDefined("cflogin")>
+            <cfif !isUserLoggedIn() AND !IsDefined("cflogin") AND !#cgi.script_name# EQ "/process/create_user.cfm">
                 <cfinclude template="/include/loginform.cfm">
                 <cfabort>
+            <cfelseif #cgi.script_name# EQ "/process/create_user.cfm">
+                <!--- Do Nothing. --->
             <cfelse>
                 <cfquery name="loginQuery">
                 SELECT username, id

@@ -3,6 +3,7 @@
     <cfset this.name = "Notify">
     <cfset this.sessionmanagement = True>
     <cfset this.defaultdatasource = "notes">
+	<cfset this.javaSettings.loadPaths = [ '.\jars' ]/>
 
     <cffunction name="OnRequestStart">
     <cfargument name = "request" required="true"/>

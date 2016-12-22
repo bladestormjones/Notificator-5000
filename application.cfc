@@ -8,17 +8,17 @@
     <cffunction name="OnRequestStart">
     <cfargument name = "request" required="true"/>
     <cfif structKeyExists(form, "logout")>
-        <!---<cfset structdelete(session.user_id)--->
+        <cfset clear = structdelete(session, "user_id")/>
         <cflogout>
     </cfif>
 
         <div align="right">
         <cflogin>
-            <cfif !isUserLoggedIn() AND !IsDefined("cflogin") AND !#cgi.script_name# EQ "/process/create_user.cfm">
+            <cfif #cgi.script_name# EQ "/process/create_user.cfm">
+                <!--- Do Nothing. --->
+            <cfelseif !isUserLoggedIn() AND !IsDefined("cflogin")>
                 <cfinclude template="/include/loginform.cfm">
                 <cfabort>
-            <cfelseif #cgi.script_name# EQ "/process/create_user.cfm">
-                <!--- Do Nothing. --->
             <cfelse>
                 <cfquery name="loginQuery">
                 SELECT username, id
@@ -40,12 +40,14 @@
             </cfif>
         </cflogin>
         </div>
-        <div align="right">
+        <cfif !#cgi.script_name# EQ "/process/create_user.cfm">
+            <div align="right">
             <cfoutput>
-                <form action="index.cfm" method="Post">
-                    <input type="submit" Name="Logout" value="Logout">
-                </form>
+                    <form action="index.cfm" method="Post">
+                        <input type="submit" Name="Logout" value="Logout">
+                    </form>
             </cfoutput>
-        </div>
+            </div>
+        </cfif>
     </cffunction>
 </cfcomponent>

@@ -13,13 +13,13 @@
 
     <div class="jumbotron">
         <h1>Notificator 5000</h1>
-            <p class="lead"><cfoutput>Welcome, #Getauthuser()#! Your personal notes are displayed below. General notes are beneath that.</cfoutput></p>
-            <form action="process/submit_note.cfm" method="post">
-                Note:<br>
-                <textarea name="note" rows="4" cols="50" minlength="10" maxlength="144">Something profound</textarea>
-                <br>
-                <input type="submit" value="Submit">
-            </form>
+        <p class="lead"><cfoutput>Welcome, #Getauthuser()#!</cfoutput></p>
+        <form action="process/submit_note.cfm" method="post">
+            Note:<br>
+            <textarea name="note" rows="4" cols="50" minlength="10" maxlength="144">Something profound</textarea>
+            <br>
+            <input type="submit" value="Make Note">
+        </form>
     </div>
 
     <div class="row marketing">

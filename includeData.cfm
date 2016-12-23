@@ -1,0 +1,3 @@
+<cfoutput>
+    #generateSecretKey("BLOWFISH")#
+</cfoutput>

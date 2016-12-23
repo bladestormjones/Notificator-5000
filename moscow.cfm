@@ -35,7 +35,7 @@
         <h4>Should Have:</h4>
         <strike>- Different users so you can make personal notes.<br></strike>
         <strike>- Ability to make new users<br></strike>
-        - Ability to edit users<br>
+        <strike>- Ability to edit users<br></strike>
         <strike>- Ability to edit notes<br></strike>
         <strike>- Ability to delete notes.<br></strike>
         <h4>Could Have:</h4>

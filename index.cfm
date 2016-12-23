@@ -13,7 +13,10 @@
 
     <div class="jumbotron">
         <h1>Notificator 5000</h1>
-        <p class="lead"><cfoutput>Welcome, #Getauthuser()#!</cfoutput></p>
+        <cfif IsDefined("cflogin")>
+            Ello!
+        </cfif>
+        <p class="lead"><cfoutput>Welcome, #getAuthUser()#!</cfoutput></p>
         <form action="process/submit_note.cfm" method="post">
             Note:<br>
             <textarea name="note" rows="4" cols="50" minlength="10" maxlength="144">Something profound</textarea>

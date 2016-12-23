@@ -8,21 +8,22 @@
 
     <div class="jumbotron">
 
-        <cfquery name="userinfo">
-            SELECT username,email,password
-            FROM users
-            WHERE id = "#session.user_id#"
+        <cfquery name="usrinfo">
+            SELECT  email,password
+            FROM    users
+            WHERE   id = #session.user_id#
         </cfquery>
+
         <cfoutput>
-            <h4>User Info for #userinfo.username#:</h4>
+            <h4>User Info for #getAuthUser()#:</h4>
             <form action="/process/edit_user.cfm" method="post"/>
                 Email:<br>
-                <input type="text" name="newEmail" value="#userinfo.email#"/><br>
+                <input type="email" name="newEmail" value="#usrinfo.email#"/><br>
                 Change Password:<br>
-                <input type="password" name="newPassword" placeholder="Enter New Password"><br>
+                <input type="password" name="newPassword" minlength="8" placeholder="Enter New Password"><br>
                 <br>
                 Confirm old password to make changes:<br>
-                <input type="password" name="oldPassword" placeholder="Enter Old Password" required><br>
+                <input type="password" name="oldPassword" minlength="8" placeholder="Enter Old Password" required><br>
                 <br>
                 <button type="submit" class="btn btn-success">
                     <i class="fa fa-pencil-square-o fa-lg"></i> Make Changes

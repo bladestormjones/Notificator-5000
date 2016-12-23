@@ -14,14 +14,14 @@
 
         <div align="right">
         <cflogin>
-            <cfif #cgi.script_name# EQ "/process/create_user.cfm">
+            <cfif #cgi.script_name# EQ "/process/create_user.cfm" or #cgi.script_name# EQ "/test2.cfm">
                 <!--- Do Nothing. --->
             <cfelseif !isUserLoggedIn() AND !IsDefined("cflogin")>
                 <cfinclude template="/include/loginform.cfm">
                 <cfabort>
             <cfelse>
                 <cfquery name="loginQuery">
-                SELECT username, id
+                SELECT username, email, id
                 FROM users
                 WHERE
                     username = '#cflogin.name#'
@@ -40,7 +40,7 @@
             </cfif>
         </cflogin>
         </div>
-        <cfif !#cgi.script_name# EQ "/process/create_user.cfm">
+        <cfif #cgi.script_name# NEQ "/process/create_user.cfm">
             <div align="right">
             <cfoutput>
                     <form action="index.cfm" method="Post">
@@ -50,4 +50,13 @@
             </div>
         </cfif>
     </cffunction>
+
+    <cffunction name="OnSessionEnd">
+        <cflogout>
+    </cffunction>
+
+    <cffunction name="OnApplicationEnd">
+        <cflogout>
+    </cffunction>
+
 </cfcomponent>

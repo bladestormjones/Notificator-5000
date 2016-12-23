@@ -19,6 +19,6 @@
                 </li>
             </ul>
         </nav>
-        <h3 class="text-muted">Notify</h3>
+        <h3 class="text-muted">Notificator 5000</h3>
     </div>
 </cfoutput>

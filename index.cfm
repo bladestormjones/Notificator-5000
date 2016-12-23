@@ -28,6 +28,31 @@
     <div class="row marketing">
         <div class="col-lg-6">
 
+            <cfoutput>
+                <cfloop query="myQuery">
+                    <cfif myQuery.currentrow % 2 eq 1>
+                        <cfinclude template="/include/notearea.cfm">
+                    </cfif>
+                </cfloop>
+            </cfoutput>
+
+        </div>
+        <div class="col-lg-6">
+
+            <cfoutput>
+                <cfloop query="myQuery">
+                    <cfif myQuery.currentrow % 2 eq 0>
+                        <cfinclude template="/include/notearea.cfm">
+                    </cfif>
+                </cfloop>
+            </cfoutput>
+
+        </div>
+    </div>
+
+    <div class="row marketing">
+        <div class="col-lg-6">
+
             <cfoutput query="myQuery" group="id">
                 <cfif myQuery.currentrow % 2 eq 1>
                     <cfinclude template="/include/notearea.cfm">

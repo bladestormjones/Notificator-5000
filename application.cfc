@@ -14,7 +14,7 @@
 
         <div align="right">
         <cflogin>
-            <cfif #cgi.script_name# EQ "/process/create_user.cfm" or #cgi.script_name# EQ "/test2.cfm">
+            <cfif #cgi.script_name# EQ "/process/create_user.cfm" or #cgi.script_name# EQ "/signupform.cfm">
                 <!--- Do Nothing. --->
             <cfelseif !isUserLoggedIn() AND !IsDefined("cflogin")>
                 <cfinclude template="/include/loginform.cfm">
@@ -40,7 +40,7 @@
             </cfif>
         </cflogin>
         </div>
-        <cfif #cgi.script_name# NEQ "/process/create_user.cfm">
+        <cfif #cgi.script_name# NEQ "/process/create_user.cfm" AND #cgi.script_name# NEQ "/signupform.cfm">
             <div align="right">
             <cfoutput>
                     <form action="index.cfm" method="Post">

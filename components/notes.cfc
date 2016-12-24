@@ -30,6 +30,9 @@
         <cfargument name="deleteID" type="numeric" required="true"/>
 
         <cfquery>
+            DELETE FROM reminders
+            WHERE note_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.deleteID#" />;
+
             DELETE FROM notes
             WHERE   id = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.deleteID#" />
         </cfquery>

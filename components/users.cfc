@@ -24,6 +24,9 @@
         <cfargument name="userID" type="numeric" required="true"/>
 
         <cfquery>
+            DELETE FROM reminders
+            WHERE author = <cfqueryparam cfsqltype="cf_sql_varchar" value=#arguments.userID# />;
+
             DELETE FROM notes
             WHERE author = <cfqueryparam cfsqltype="cf_sql_varchar" value=#arguments.userID# />;
 

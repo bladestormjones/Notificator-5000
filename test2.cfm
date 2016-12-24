@@ -1,6 +1,26 @@
-<cfset inFive = dateAdd( "n", 5, now() )>
-<cfdump var="#inFive#"/>
+<cfset note_id = 17>
 
-<cfschedule action="update" task="TestTask2" startDate="#inFive#" startTime="#inFive#" url="http://notes.local:8888/test3.cfm" interval="Once" operation="HTTPRequest"/>
+<cfquery name="note_details">
+    SELECT  *
+    FROM    notes
+    WHERE   id = #note_id#
+</cfquery>
 
-<cfschedule action="list"/>
+<cfquery name="reminder_details">
+    INSERT INTO reminders
+    (
+    note_id,author,sendtime,sent
+    )
+    VALUES
+    (
+    <cfqueryparam cfsqltype="cf_sql_integer" value="#note_details.id#" />,
+    <cfqueryparam cfsqltype="cf_sql_integer" value="#note_details.author#" />,
+    <cfqueryparam cfsqltype="cf_sql_timestamp" value="#now()#" />,
+    <cfqueryparam cfsqltype="cf_sql_bit" value="0" />
+    )
+</cfquery>
+
+<input type="date" name="date" required value=now()/>
+<input type="time" name="time" required value="08:00"/>
+
+<cfdump var="#server.lastRunTime#"/>

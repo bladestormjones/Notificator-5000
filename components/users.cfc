@@ -21,17 +21,15 @@
     </cffunction>
 
     <cffunction name="deleteUser">
-        <cfargument name="userID" type="numeric" required="true"/>
-
         <cfquery>
             DELETE FROM reminders
-            WHERE author = <cfqueryparam cfsqltype="cf_sql_varchar" value=#arguments.userID# />;
+            WHERE author = <cfqueryparam cfsqltype="cf_sql_varchar" value=#session.user_id# />;
 
             DELETE FROM notes
-            WHERE author = <cfqueryparam cfsqltype="cf_sql_varchar" value=#arguments.userID# />;
+            WHERE author = <cfqueryparam cfsqltype="cf_sql_varchar" value=#session.user_id# />;
 
             DELETE FROM users
-            WHERE id = <cfqueryparam cfsqltype="cf_sql_varchar" value=#arguments.userID# />
+            WHERE id = <cfqueryparam cfsqltype="cf_sql_varchar" value=#session.user_id# />
         </cfquery>
     </cffunction>
 

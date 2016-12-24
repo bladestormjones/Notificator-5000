@@ -1,3 +1,3 @@
 <footer class="footer">
-    <p>&copy; 2016 Some jackass</p>
+    <p>&copy; 2016 Robin MacDaniel</p>
 </footer>

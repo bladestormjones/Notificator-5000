@@ -17,9 +17,9 @@
             WHERE   id = #sendReminders.author#
         </cfquery>
 
-        <!---Although all this information could be stored in the reminders database, this way you can have multiple reminders for the same note, and the reminder can be modified.--->
+<!---Although all this information could be stored in the reminders database, this way you can have multiple reminders for the same note, and the reminder can be modified.--->
 
-        <cfmail from="robin@macdaniel.nl" to="robin@macdaniel.nl" subject="Testing the scheduler">
+        <cfmail from="robin@macdaniel.nl" to="userDetails.email" subject="Testing the scheduler">
 Hello, #userDetails.username#!
 
 This is a reminder of your note:
@@ -39,11 +39,5 @@ We hope this will answer any questions you might have!
         </cfquery>
     </cfif>
 </cfloop>
-
-
-
-
-
-
 
 <cfset server.lastRunTime = now()>

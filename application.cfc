@@ -12,9 +12,9 @@
         <cflogout>
     </cfif>
 
-        <div align="right">
+        <div align="center">
         <cflogin>
-            <cfif #cgi.script_name# EQ "/process/create_user.cfm" or #cgi.script_name# EQ "/signupform.cfm" or #cgi.script_name# EQ "/test3.cfm">
+            <cfif #cgi.script_name# EQ "/process/create_user.cfm" or #cgi.script_name# EQ "/signupform.cfm" or #cgi.script_name# EQ "/process/mail_reminder.cfm">
                 <!--- Do Nothing. --->
             <cfelseif !isUserLoggedIn() AND !IsDefined("cflogin")>
                 <cfinclude template="/include/loginform.cfm">
@@ -36,6 +36,7 @@
                                 Please Try again</H2>
                         </cfoutput>
                         <cfinclude template="/include/loginform.cfm">
+                        <cfabort>
                     </cfif>
             </cfif>
         </cflogin>

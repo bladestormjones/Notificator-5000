@@ -1,9 +1,6 @@
-<cfoutput>
-<cfset date = DateFormat( #myQuery.timestamp# )/>
-<cfset time = TimeFormat( #myQuery.timestamp# )/>
-<cfset datetime = #date# & " " & #time#/>
+<cfoutput>.
 <h4 id="note_#myQuery.id#">Note #myquery.id#</h4>
-<blockquote>#myquery.note#</blockquote>#datetime#<br>
+<blockquote>#myquery.note#</blockquote>#DateTimeFormat( #myQuery.timestamp# )#<br>
 <hr>
 <div style='float:left'>
     <form action="/process/delete_note.cfm" method="post">
@@ -35,5 +32,11 @@
             </button>
     </form>
 </div>
+<form action="/reminders.cfm" method="get">
+        <input type="hidden" name="noteID" value="#myquery.id#">
+        <button type="submit" class="btn btn-success">
+        <i class="fa fa-check fa-lg"></i> Reminders
+</button>
+</form>
 <br><br>
 </cfoutput>

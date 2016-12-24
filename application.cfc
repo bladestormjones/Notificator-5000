@@ -42,10 +42,13 @@
         </cflogin>
         </div>
         <cfif #cgi.script_name# NEQ "/process/create_user.cfm" AND #cgi.script_name# NEQ "/signupform.cfm">
-            <div align="right">
+            <div style="float:right" align="right">
             <cfoutput>
                     <form action="index.cfm" method="Post">
-                        <input type="submit" Name="Logout" value="Logout">
+                        <input type="hidden" name="Logout" value="Logout"/>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-sign-out fa-lg"></i> Log Out
+                        </button>
                     </form>
             </cfoutput>
             </div>

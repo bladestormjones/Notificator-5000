@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="836288cc-9e46-466e-86a9-050b1847e272" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/components/sort.cfc" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/HELP-US-OUT.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/includeData.cfm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/reload.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test.cfm" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/notify.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/head.cfm" afterPath="$PROJECT_DIR$/include/head.cfm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/notearea.cfm" afterPath="$PROJECT_DIR$/include/notearea.cfm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.cfm" afterPath="$PROJECT_DIR$/index.cfm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/moscow.cfm" afterPath="$PROJECT_DIR$/moscow.cfm" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -774,7 +766,7 @@
       <workItem from="1482302902498" duration="13536000" />
       <workItem from="1482341865517" duration="142000" />
       <workItem from="1482342119674" duration="14576000" />
-      <workItem from="1482388383356" duration="87473000" />
+      <workItem from="1482388383356" duration="88166000" />
     </task>
     <task id="LOCAL-00001" summary="GIt integration fix">
       <created>1482341958852</created>
@@ -867,11 +859,18 @@
       <option name="project" value="LOCAL" />
       <updated>1482585813655</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="All design goals now met.">
+      <created>1482595134994</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1482595134994</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="172519000" />
+    <option name="totallyTimeSpent" value="173212000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -951,7 +950,8 @@
     <MESSAGE value="Adding user creation." />
     <MESSAGE value="Account deletion added." />
     <MESSAGE value="Reminder Functionality added." />
-    <option name="LAST_COMMIT_MESSAGE" value="Reminder Functionality added." />
+    <MESSAGE value="All design goals now met." />
+    <option name="LAST_COMMIT_MESSAGE" value="All design goals now met." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

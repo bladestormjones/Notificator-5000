@@ -41,7 +41,7 @@
         <h4>Could Have:</h4>
         <strike>- User login.<br></strike>
         <strike>- Ability to delete users and all their notes.<br></strike>
-        <strike>- Ability to set notes to "done"</strike> and a filter function for notes based on "done and not done".<br>
+        <strike>- Ability to set notes to "done" and a filter function for notes based on "done and not done".<br></strike>
         <strike>- Ability to add a reminder time to a note and to send a mail around that time. (tip: scheduled tasks)<br></strike>
     </div>
 

@@ -10,7 +10,7 @@
 
     <link rel="icon" href="favicon.ico">
 
-    <title>Notify V0.0.4</title>
+    <title>Notify V1.0.0</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">

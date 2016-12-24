@@ -1,8 +1,14 @@
-<cfquery name="myQuery">
-    SELECT  *
-    FROM    notes
-    WHERE   author = <cfqueryparam cfsqltype="cf_sql_integer" value="#session.user_id#" />
-</cfquery>
+<cfif !structKeyExists(Form, "sortmethod") and !structKeyExists(Session, "sortmethod")>
+    <cfset session.sortmethod = "id">
+<cfelseif !structKeyExists(Form, "sortmethod") AND structKeyExists(Session, "sortmethod")>
+<cfelseif #form.sortmethod# EQ "id">
+    <cfset session.sortmethod = "id">
+<cfelseif #form.sortmethod# EQ "done">
+    <cfset session.sortmethod = "done">
+</cfif>
+
+<cfset obj = new components.sort() />
+<cfset myQuery = obj.sortmethod( session.sortmethod ) />
 
 <cfinclude template="/include/head.cfm"/>
 
@@ -12,42 +18,45 @@
     <cfinclude template="/include/navbar.cfm"/>
 
     <div class="jumbotron">
-        <h1>Notificator 5000</h1>
-        <cfif IsDefined("cflogin")>
-            Ello!
-        </cfif>
-        <p class="lead"><cfoutput>Welcome, #getAuthUser()#!</cfoutput></p>
+        <H1><cfoutput>Welcome, #getAuthUser()#!</cfoutput></H1>
         <form action="process/submit_note.cfm" method="post">
-            Note:<br>
-            <textarea name="note" rows="4" cols="50" minlength="10" maxlength="144">Something profound</textarea>
+            Enter note:<br>
+            <textarea name="note" rows="4" cols="50" minlength="10" maxlength="144"></textarea>
             <br>
             <input type="submit" value="Make Note">
         </form>
     </div>
 
     <div class="row marketing">
-        <div class="col-lg-6">
-
-            <cfoutput>
-                <cfloop query="myQuery">
-                    <cfif myQuery.currentrow % 2 eq 1>
-                        <cfinclude template="/include/notearea.cfm">
-                    </cfif>
-                </cfloop>
-            </cfoutput>
-
-        </div>
-        <div class="col-lg-6">
-
-            <cfoutput>
-                <cfloop query="myQuery">
-                    <cfif myQuery.currentrow % 2 eq 0>
-                        <cfinclude template="/include/notearea.cfm">
-                    </cfif>
-                </cfloop>
-            </cfoutput>
-
-        </div>
+        <cfoutput>
+            <cfif #myQuery.recordcount# EQ 0>
+                    <h4>No notes found.</h4>
+            <cfelse>
+                <div align="right">
+                    Sort by:&nbsp;
+                    <div style="float:right">
+                        <form action="/index.cfm" method="post">
+                            <input type="hidden" name="sortmethod" value="id">
+                            <button type="submit" title="ID" class="btn btn-primary">
+                                <i class="fa fa-hashtag fa-lg"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div style="float:right">
+                        |
+                    </div>
+                    <div style="float:right">
+                        <form action="/index.cfm" method="post">
+                            <input type="hidden" name="sortmethod" value="done">
+                            <button type="submit" title="Done" class="btn btn-primary">
+                                <i class="fa fa-check fa-lg"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                    <cfinclude template="/include/notearea.cfm">
+            </cfif>
+        </cfoutput>
     </div>
 
     <cfinclude template="/include/footer.cfm"/>

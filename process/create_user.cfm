@@ -30,8 +30,6 @@
             <cfloginuser name="#form.username#" Password = "#form.password#" roles="user">
         </cflogin>
         <cfset session.user_id = loginQuery.id/>
-        <cfset session.username = loginquery.username/>
-        <cfset session.email = loginQuery.email/>
         <cflocation url="/index.cfm" addtoken="false"/>
     <cfelse>
         <cfoutput>

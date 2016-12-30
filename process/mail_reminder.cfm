@@ -19,7 +19,7 @@
 
 <!---Although all this information could be stored in the reminders database, this way you can have multiple reminders for the same note, and the reminder can be modified.--->
 
-        <cfmail from="robin@macdaniel.nl" to="userDetails.email" subject="Notificator 5000: Reminder">
+        <cfmail from="robin@macdaniel.nl" to="#userDetails.email#" subject="Notificator 5000: Reminder">
 Hello, #userDetails.username#!
 
 This is your scheduled reminder for your note:
